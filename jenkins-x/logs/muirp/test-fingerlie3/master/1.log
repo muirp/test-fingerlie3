@@ -1,0 +1,70 @@
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-frf29[0m
+{"level":"warn","ts":1567431934.8825881,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1567431934.8842604,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-c4rpf[0m
+{"level":"warn","ts":1567431935.525974,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1567431935.528323,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source /workspace/source/charts/test-fingerlie3\""}
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-muirp-test-fingerlie3-master-9q8c5[0m
+{"level":"warn","ts":1567431941.595795,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1567431942.6674144,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/muirp/test-fingerlie3.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:a8113392bc4f65fca96bf1ed8e939809cd25fb47
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/test-fingerlie3 main.go
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/test-fingerlie3"]              
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2019/09/02 13:45:53 pushed blob: sha256:b4a59ddc6ec6e631f0245b0e7f5a7358beecab6fa1f7abd58f2f3e381b370bc7
+2019/09/02 13:45:54 pushed blob: sha256:db5aa0971a060cb9e541d1f6be83b6d51bf7907b6d37c91220c524af2ddac36d
+2019/09/02 13:45:55 gcr.io/apps-dev-229310/test-fingerlie3:0.0.1: digest: sha256:b9e60fb8004d9fa3881127f7cb0c1a4e13331b7dd3661352305a9a3f54ca4c33 size: 428
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ******* namespace so skip adding image to be analysed
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/test-fingerlie3 to an unshallow repository
+no previous commit version found so change diff unavailable
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file test-fingerlie3-0.0.1.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32mmuirp-test-fingerlie3-master-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/jx/issues/2410
+Promoting app test-fingerlie3 version 0.0.1 to namespace *******-staging
+Created Pull Request: https://github.com/muirp/environment-fingertide-staging/pull/5
+Added label  to Pull Request https://github.com/muirp/environment-fingertide-staging/pull/5
+Pull Request https://github.com/muirp/environment-fingertide-staging/pull/5 is merged at sha a07c8f0eb15f419fd5d24e7e0872156f4f679dfe
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace *******-staging for names test-fingerlie3, *******-test-fingerlie3, *******-staging-test-fingerlie3
